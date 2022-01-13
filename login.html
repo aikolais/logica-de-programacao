@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+// vai logar no prompt
+// só tem 3 alternativas
+
+let usuarioCadastrado = "lais";
+let senhaCadastrada = "lais123";
+
+let maximoTentativas = 5;
+let tentativaAtual = 1;
+
+while(tentativaAtual <= maximoTentativas) {
+
+    let usuarioInformado = prompt("Insira seu login");
+    let senhaInformada = prompt("Insira sua senha");
+
+if (usuarioCadastrado === usuarioInformado && senhaCadastrada === senhaInformada){
+    alert("Seja bem vindo" + usuarioInformado);
+
+    tentativaAtual = maximoTentativas;
+
+} else {
+             if (tentativaAtual === 3){
+             alert("Ultrapassou limite de tentativas");
+             } else {
+    alert("tente novamente")
+}
+};
+
+tentativaAtual = tentativaAtual + 1;
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    
+<input/>
+<button>Clica</button>
+
+
+<script>
+
+function sorteia(){
+    return Math.round(Math.random() * 10);
+}
+
+function sorteiaNumeros(qtd){
+    let segredos =  [];       // essa funcao segredos só existe dentro dessa function
+
+    let numero = 1;
+
+    while(numero <= qtd){
+
+        let numeroAleatorio = sorteia();
+        var achou = false;
+
+            if (numeroAleatorio != 0) {
+
+
+        for(let posicao = 0; posicao < segredos.length; posicao++){
+            if(segredos[posicao] === numeroAleatorio){
+                achou = true;
+                break;
+            }
+        }
+
+        if(achou === false){
+            segredos.push(numeroAleatorio); //eu coloquei antes sorteia() ao inves do numeroaleatorio e tava repetindo e colocando 0.
+            numero++;
+        }
+}
+        }
+ 
+    return segredos;
+}
+
+
+let segredos = sorteiaNumeros(5);
+
+console.log(segredos);
+
+let input = document.querySelector("input");
+input.focus();
+
+
+function verifica(){
+
+    let achou = false
+
+    for(var posicao = 0; posicao < segredos.length; posicao++) {
+    if(input.value == segredos[posicao]){
+    alert("acertou");
+    achou = true;
+    break;
+}   
+    }
+
+    if(achou == false) {
+        alert("Você ERROU!");
+    };
+
+input.value = "";
+input.focus();
+
+}
+
+let button = document.querySelector("button");
+button.onclick = verifica;   //sem () pois a função verifica ta 'morando' no onclick pra ser executada so qndo clica
+
+</script>
+
+
+
+</body>
+</html>
