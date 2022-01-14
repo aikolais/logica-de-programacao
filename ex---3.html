@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <p>
+        Início
+        <input type="number" name="inicio" id="txtini" />
+      </p>
+      <p>
+        Fim
+        <input type="number" name="fim" id="txtfim" />
+      </p>
+      <p>
+        Pular de
+        <input type="number" name="pula" id="txtpul" />
+      </p>
+      <p>
+        <button type="submit" value="verificar" onclick="verificar()">
+          Verificar
+        </button>
+      </p>
+    </div>
+
+    <div id="res">
+      <p>Resposta</p>
+    </div>
+
+    <script>
+      function verificar() {
+        let inc = document.getElementById("txtini");
+        let fim = document.getElementById("txtfim");
+        let pul = document.getElementById("txtpul");
+        let res = document.getElementById("res");
+
+        if (
+          inc.value.length === 0 ||
+          fim.value.length === 0 ||
+          pul.value.length === 0
+        ) {
+          alert("Faltam dados.");
+        } else {
+          res.innerHTML = `Contando: ... `;
+          let i = parseInt(inc.value);
+          let f = parseInt(fim.value);
+          let p = parseInt(pul.value);
+          if (i < f) { 
+                //contagem crescente
+
+            for (let c = i; c <= f; c += p) {
+              res.innerHTML += ` ${c} `;
+            }
+          } else {
+              //contagem decrescente
+            for (let c = i; c >= f; c -= p) {
+              res.innerHTML += ` ${c} `;
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

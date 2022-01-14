@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>
+    <p>Ano de Nascimento
+    <input type="number" name="txtano" id="txtano">
+    </p>
+    <p>Gênero
+    <input type="radio" name="radsex" id="masc" checked>
+    <label for="masc">Masculino</label>
+    <input type="radio" name="radsex" id="fem">
+    <label for="fem">Feminino</label>
+    </p>
+    <p>
+        <button type="button" value="verificar" onclick="verificar()"> Verificar</button>
+    </p>
+    </div>
+
+    <div id="res"> 
+        <p>Resposta</p>
+    </div>
+
+<script>
+    function verificar(){
+let yearCurrent = 2022;
+
+let year = document.getElementById("txtano");
+    if(year.value.lenght === 0 || Number(year.value) > yearCurrent ){
+        alert("Verifique seus dados")
+    } else {
+
+        let radsex = document.getElementsByName("radsex");
+        let age = year - Number(yearCurrent.value);
+        let gender = "";
+        if(radsex[0].checked){
+            gender = "Homem";
+        } else if (radsex[2].checked){
+            gender = "Mulher"
+        }
+
+        res.innerHTML = `Você é ${gender} com ${age} anos.`
+    }
+
+
+    }
+
+
+</script>
+
+</body>
+</html>

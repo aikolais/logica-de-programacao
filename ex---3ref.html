@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refeito, eu que fiz depois de ver a solução</title>
+</head>
+<body>
+    <div>
+      <p>
+        Início
+        <input type="number" name="inicio" id="txtini" />
+      </p>
+      <p>
+        Fim
+        <input type="number" name="fim" id="txtfim" />
+      </p>
+      <p>
+        Pular de
+        <input type="number" name="pula" id="txtpul" />
+      </p>
+      <p>
+        <button type="submit" value="verificar" onclick="verificar()">
+          Verificar
+        </button>
+      </p>
+    </div>
+
+    <div id="res">
+      <p>Resposta</p>
+    </div>
+
+<script>
+
+const inicio = document.getElementById('txtini');
+const fim = document.getElementById('txtfim');
+const pula = document.getElementById('txtpul');
+
+function verificar(){
+
+if(inicio.value.length === 0 || fim.value.length === 0 || pula.value.length === 0 ){
+    alert("Errou, porque não preencheu os campos")
+} else {
+    res.innerHTML += `Contando.... `
+    let i = parseInt(inicio.value);
+    let f = parseInt(fim.value);
+    let p = parseInt(pula.value);
+    if(i < f) {
+
+    for(let c = i; c <= f; c += p) {
+        res.innerHTML += ` ${c} `
+    }
+
+    } else {
+        for (let c = i; c >= f; c -= p) {
+            res.innerHTML += ` ${c} `
+        }
+    }
+
+} 
+
+
+
+}
+
+
+</script>
+
+</body>
+</html>

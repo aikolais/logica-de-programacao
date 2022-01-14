@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <p>
+        Número
+        <input type="number" name="num" id="numb" />
+      </p>
+      <button type="submit" value="aaaa" onclick="gerar()">
+        Gerar Tabuada
+      </button>
+    </div>
+
+    <div id="res">
+      <p>Resposta</p>
+    </div>
+
+    <script>
+      function gerar() {
+        let valor = document.getElementById("numb").value; //capturar elemento do id e valor
+        if (valor.length === 0) {
+          //pegando o valor do elemento que está na variavel valor e vendo se foi preenchido
+          alert("Digite um número");
+        } else {
+          let numb = parseInt(valor); //convertendo pra numero
+          let res = document.getElementById("res"); // capturando elemento onde vai aparecer a tabuada
+
+          for (let i = 0; i <= 10; i++) {
+            // inicia contador no 0, vai até 10, e vai somando.
+            res.innerHTML += ` ${numb} x ${i} = ${numb * i} <br>`; //colocando no resultado a soma. numb aqui pois ele foi convertido p numero
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
